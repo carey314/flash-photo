@@ -4,6 +4,7 @@
   "description": "AI证件照处理云函数",
   "main": "index.js",
   "dependencies": {
-    "wx-server-sdk": "~2.6.3"
+    "wx-server-sdk": "~2.6.3",
+    "jimp": "^0.22.12"
   }
 }
