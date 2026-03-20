@@ -1,0 +1,10 @@
+{
+  "name": "generateLayout",
+  "version": "1.0.0",
+  "description": "证件照排版生成云函数",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3",
+    "jimp": "^0.22.12"
+  }
+}

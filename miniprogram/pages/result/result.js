@@ -42,9 +42,40 @@ Page({
   },
 
   // 选择排版
-  onSelectLayout(e) {
+  async onSelectLayout(e) {
     const layout = e.currentTarget.dataset.layout
     this.setData({ activeLayout: layout })
+
+    // 如果选择了多联排版且已付费，自动生成排版
+    if (layout !== 'single' && !this.data.hasWatermark) {
+      await this.generateLayout(layout)
+    }
+  },
+
+  // 生成排版
+  async generateLayout(layout) {
+    wx.showLoading({ title: '生成排版中...', mask: true })
+    try {
+      const result = await wx.cloud.callFunction({
+        name: 'generateLayout',
+        data: {
+          fileID: this.data.resultFileID,
+          spec: app.globalData.selectedSpec,
+          layout,
+        }
+      })
+      wx.hideLoading()
+
+      if (result.result && result.result.success) {
+        this.setData({
+          layoutFileID: result.result.fileID,
+        })
+        wx.showToast({ title: '排版已生成', icon: 'success' })
+      }
+    } catch (err) {
+      wx.hideLoading()
+      console.error('排版生成失败:', err)
+    }
   },
 
   // 付费下载
@@ -126,9 +157,14 @@ Page({
   // 保存到相册
   async onSavePhoto() {
     try {
+      // 如果有排版版本且选择了多联，保存排版版本
+      const saveFileID = (this.data.activeLayout !== 'single' && this.data.layoutFileID)
+        ? this.data.layoutFileID
+        : this.data.resultFileID
+
       // 获取临时文件
       const { tempFilePath } = await wx.cloud.downloadFile({
-        fileID: this.data.resultFileID,
+        fileID: saveFileID,
       })
 
       // 保存到相册
