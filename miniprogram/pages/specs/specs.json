@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "选择规格"
+  "navigationBarTitleText": "选择规格",
+  "usingComponents": {
+    "processing-overlay": "/components/processing-overlay/processing-overlay"
+  }
 }

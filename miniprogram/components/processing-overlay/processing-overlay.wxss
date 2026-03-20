@@ -1,0 +1,120 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.processing-card {
+  width: 560rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 50rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 旋转动画 */
+.spinner {
+  width: 120rpx;
+  height: 120rpx;
+  position: relative;
+  margin-bottom: 40rpx;
+}
+
+.spinner-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 6rpx solid #E8E8E8;
+  border-top-color: #4A90D9;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48rpx;
+}
+
+/* 步骤 */
+.steps {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+  width: 100%;
+  justify-content: center;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.step-dot {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background: #E0E0E0;
+  transition: all 0.3s;
+}
+
+.step.active .step-dot {
+  background: #4A90D9;
+  box-shadow: 0 0 0 4rpx rgba(74, 144, 217, 0.3);
+}
+
+.step.done .step-dot {
+  background: #52C41A;
+}
+
+.step-text {
+  font-size: 20rpx;
+  color: #999;
+  white-space: nowrap;
+}
+
+.step.active .step-text {
+  color: #4A90D9;
+  font-weight: 500;
+}
+
+.step.done .step-text {
+  color: #52C41A;
+}
+
+.step-line {
+  width: 40rpx;
+  height: 3rpx;
+  background: #E0E0E0;
+  margin: 0 8rpx;
+  margin-bottom: 28rpx;
+  transition: background 0.3s;
+}
+
+.step-line.active {
+  background: #4A90D9;
+}
+
+.processing-tip {
+  font-size: 24rpx;
+  color: #999;
+}

@@ -1,0 +1,35 @@
+<!-- AI处理中动画 -->
+<view class="overlay" wx:if="{{show}}" catchtouchmove="prevent">
+  <view class="processing-card">
+    <!-- 动画圆圈 -->
+    <view class="spinner">
+      <view class="spinner-ring"></view>
+      <view class="spinner-icon">📸</view>
+    </view>
+
+    <!-- 进度步骤 -->
+    <view class="steps">
+      <view class="step {{stepIndex >= 0 ? 'active' : ''}} {{stepIndex > 0 ? 'done' : ''}}">
+        <view class="step-dot"></view>
+        <text class="step-text">检测人脸</text>
+      </view>
+      <view class="step-line {{stepIndex > 0 ? 'active' : ''}}"></view>
+      <view class="step {{stepIndex >= 1 ? 'active' : ''}} {{stepIndex > 1 ? 'done' : ''}}">
+        <view class="step-dot"></view>
+        <text class="step-text">智能抠图</text>
+      </view>
+      <view class="step-line {{stepIndex > 1 ? 'active' : ''}}"></view>
+      <view class="step {{stepIndex >= 2 ? 'active' : ''}} {{stepIndex > 2 ? 'done' : ''}}">
+        <view class="step-dot"></view>
+        <text class="step-text">换背景</text>
+      </view>
+      <view class="step-line {{stepIndex > 2 ? 'active' : ''}}"></view>
+      <view class="step {{stepIndex >= 3 ? 'active' : ''}}">
+        <view class="step-dot"></view>
+        <text class="step-text">生成照片</text>
+      </view>
+    </view>
+
+    <text class="processing-tip">{{tipText}}</text>
+  </view>
+</view>

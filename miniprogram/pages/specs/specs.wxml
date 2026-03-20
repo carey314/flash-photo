@@ -74,4 +74,7 @@
       {{imagePath ? '生成证件照' : '选择照片'}}
     </button>
   </view>
+
+  <!-- AI处理中动画 -->
+  <processing-overlay show="{{isProcessing}}"></processing-overlay>
 </view>

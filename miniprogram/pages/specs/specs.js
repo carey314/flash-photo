@@ -141,7 +141,8 @@ Page({
       return
     }
 
-    wx.showLoading({ title: 'AI处理中...', mask: true })
+    // 显示处理动画
+    this.setData({ isProcessing: true })
 
     try {
       // 上传图片到云存储
@@ -161,7 +162,7 @@ Page({
         }
       })
 
-      wx.hideLoading()
+      this.setData({ isProcessing: false })
 
       if (result.result && result.result.success) {
         // 记录免费次数使用
@@ -171,6 +172,10 @@ Page({
           const used = wx.getStorageSync(usedKey) || 0
           wx.setStorageSync(usedKey, used + 1)
         }
+
+        // 更新本地统计
+        const total = wx.getStorageSync('total_photos') || 0
+        wx.setStorageSync('total_photos', total + 1)
 
         // 保存结果到全局变量
         app.globalData.processResult = result.result
@@ -183,12 +188,25 @@ Page({
         })
       } else {
         const errMsg = result.result?.message || '处理失败，请重试'
-        wx.showToast({ title: errMsg, icon: 'none' })
+        wx.showModal({
+          title: '处理失败',
+          content: errMsg + '\n\n建议：\n1. 确保照片中有清晰的正面人脸\n2. 光线充足，避免逆光\n3. 背景尽量简洁',
+          showCancel: false,
+        })
       }
     } catch (err) {
-      wx.hideLoading()
+      this.setData({ isProcessing: false })
       console.error('处理失败:', err)
-      wx.showToast({ title: '处理失败，请重试', icon: 'none' })
+
+      // 区分网络错误和其他错误
+      const isNetworkError = err.errMsg && err.errMsg.includes('network')
+      wx.showModal({
+        title: isNetworkError ? '网络异常' : '处理失败',
+        content: isNetworkError
+          ? '请检查网络连接后重试'
+          : '照片处理出错，请更换照片后重试',
+        showCancel: false,
+      })
     }
   },
 
