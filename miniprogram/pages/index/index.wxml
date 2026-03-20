@@ -1,0 +1,87 @@
+<!-- 首页 -->
+<view class="page">
+  <!-- 顶部Banner -->
+  <view class="hero-section">
+    <view class="hero-bg">
+      <view class="hero-content">
+        <text class="hero-title">AI智能证件照</text>
+        <text class="hero-subtitle">3秒出片 · 专业品质 · 超低价格</text>
+        <view class="hero-price">
+          <text class="price-highlight">¥1.99</text>
+          <text class="price-original">照相馆¥30+</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 快速操作 -->
+  <view class="quick-actions card">
+    <view class="action-btn main-action" bindtap="onTakePhoto">
+      <view class="action-icon camera-icon">📷</view>
+      <text class="action-text">拍证件照</text>
+      <text class="action-desc">自动换背景+裁剪</text>
+    </view>
+    <view class="action-btn" bindtap="onChoosePhoto">
+      <view class="action-icon album-icon">🖼️</view>
+      <text class="action-text">从相册选择</text>
+      <text class="action-desc">已有照片一键处理</text>
+    </view>
+  </view>
+
+  <!-- 热门规格 -->
+  <view class="section card">
+    <view class="section-header flex-between">
+      <text class="section-title">热门规格</text>
+      <text class="section-more" bindtap="onViewAllSpecs">查看全部 ></text>
+    </view>
+    <view class="specs-grid">
+      <view class="spec-item" wx:for="{{hotSpecs}}" wx:key="id" bindtap="onSelectSpec" data-spec="{{item}}">
+        <view class="spec-preview" style="background: {{selectedBg}};">
+          <view class="spec-size">{{item.desc}}</view>
+        </view>
+        <text class="spec-name">{{item.name}}</text>
+        <text class="tag tag-hot" wx:if="{{item.popular}}">热门</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能特色 -->
+  <view class="features card">
+    <view class="section-title" style="margin-bottom: 20rpx;">为什么选闪拍</view>
+    <view class="feature-list">
+      <view class="feature-item">
+        <text class="feature-icon">⚡</text>
+        <view class="feature-info">
+          <text class="feature-name">3秒出片</text>
+          <text class="feature-desc">AI自动处理，无需等待</text>
+        </view>
+      </view>
+      <view class="feature-item">
+        <text class="feature-icon">🎯</text>
+        <view class="feature-info">
+          <text class="feature-name">标准合规</text>
+          <text class="feature-desc">20+规格，满足各种场景</text>
+        </view>
+      </view>
+      <view class="feature-item">
+        <text class="feature-icon">✨</text>
+        <view class="feature-info">
+          <text class="feature-name">智能美颜</text>
+          <text class="feature-desc">自然美颜，拒绝过度PS</text>
+        </view>
+      </view>
+      <view class="feature-item">
+        <text class="feature-icon">💰</text>
+        <view class="feature-info">
+          <text class="feature-name">超低价格</text>
+          <text class="feature-desc">仅需1.99元，比照相馆省95%</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 今日免费额度提示 -->
+  <view class="free-tip" wx:if="{{freeCount > 0}}">
+    <text>今日还有 {{freeCount}} 次免费体验机会</text>
+  </view>
+</view>

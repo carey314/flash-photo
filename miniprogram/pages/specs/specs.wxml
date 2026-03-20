@@ -1,0 +1,77 @@
+<!-- 规格选择页 -->
+<view class="page">
+  <!-- 照片预览 -->
+  <view class="preview-section" wx:if="{{imagePath}}">
+    <image class="preview-image" src="{{imagePath}}" mode="aspectFill"></image>
+    <view class="preview-overlay">
+      <text class="preview-tip">已选择照片</text>
+    </view>
+  </view>
+
+  <!-- 选择背景色 -->
+  <view class="section card">
+    <text class="section-title">选择背景色</text>
+    <view class="bg-colors">
+      <view
+        class="bg-color-item {{selectedBgId === item.id ? 'active' : ''}}"
+        wx:for="{{bgColors}}"
+        wx:key="id"
+        bindtap="onSelectBg"
+        data-bg="{{item}}"
+      >
+        <view class="bg-color-circle" style="background: {{item.color}};"></view>
+        <text class="bg-color-name">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 选择规格 -->
+  <view class="section card">
+    <text class="section-title">选择照片规格</text>
+
+    <!-- 分类 tabs -->
+    <view class="category-tabs">
+      <view
+        class="category-tab {{activeCategory === item.key ? 'active' : ''}}"
+        wx:for="{{categories}}"
+        wx:key="key"
+        bindtap="onSwitchCategory"
+        data-key="{{item.key}}"
+      >
+        {{item.name}}
+      </view>
+    </view>
+
+    <!-- 规格列表 -->
+    <view class="specs-list">
+      <view
+        class="spec-row {{selectedSpecId === item.id ? 'active' : ''}}"
+        wx:for="{{filteredSpecs}}"
+        wx:key="id"
+        bindtap="onSelectSpec"
+        data-spec="{{item}}"
+      >
+        <view class="spec-row-left">
+          <text class="spec-row-name">{{item.name}}</text>
+          <text class="spec-row-desc">{{item.desc}}</text>
+        </view>
+        <view class="spec-row-right">
+          <text class="tag tag-hot" wx:if="{{item.popular}}">热门</text>
+          <view class="radio-circle {{selectedSpecId === item.id ? 'checked' : ''}}"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar">
+    <view class="bottom-info">
+      <text class="bottom-spec" wx:if="{{selectedSpec}}">{{selectedSpec.name}} · {{selectedSpec.desc}}</text>
+      <text class="bottom-price" wx:if="{{isFree}}">本次免费</text>
+      <text class="bottom-price" wx:else>¥{{priceText}}</text>
+    </view>
+    <button class="btn-primary bottom-btn" bindtap="onGenerate" disabled="{{!canGenerate}}">
+      {{imagePath ? '生成证件照' : '选择照片'}}
+    </button>
+  </view>
+</view>

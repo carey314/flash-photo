@@ -1,0 +1,77 @@
+<!-- 个人中心 -->
+<view class="page">
+  <!-- 用户信息 -->
+  <view class="user-section">
+    <view class="user-card">
+      <image class="user-avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill"></image>
+      <view class="user-info">
+        <text class="user-name">{{userInfo.nickName || '点击登录'}}</text>
+        <text class="user-vip" wx:if="{{isVip}}">VIP会员 · {{vipExpire}}</text>
+        <text class="user-free" wx:else>免费用户 · 每天{{freeDaily}}次</text>
+      </view>
+      <button class="login-btn" wx:if="{{!userInfo}}" bindtap="onLogin">登录</button>
+    </view>
+  </view>
+
+  <!-- VIP卡片 -->
+  <view class="vip-card card" wx:if="{{!isVip}}" bindtap="onBuyVip">
+    <view class="vip-left">
+      <text class="vip-icon">👑</text>
+      <view class="vip-text">
+        <text class="vip-title">开通VIP会员</text>
+        <text class="vip-desc">无限次使用 · 高清无水印 · 全部规格</text>
+      </view>
+    </view>
+    <view class="vip-price">
+      <text class="vip-amount">¥19.9</text>
+      <text class="vip-period">/月</text>
+    </view>
+  </view>
+
+  <!-- 统计 -->
+  <view class="stats card">
+    <view class="stat-item">
+      <text class="stat-number">{{totalPhotos}}</text>
+      <text class="stat-label">证件照</text>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <text class="stat-number">{{todayFreeLeft}}</text>
+      <text class="stat-label">今日免费</text>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <text class="stat-number">{{totalSaved}}</text>
+      <text class="stat-label">已保存</text>
+    </view>
+  </view>
+
+  <!-- 功能列表 -->
+  <view class="menu-list card">
+    <view class="menu-item" bindtap="onMyPhotos">
+      <text class="menu-icon">📁</text>
+      <text class="menu-text">我的证件照</text>
+      <text class="menu-arrow">></text>
+    </view>
+    <view class="menu-item" bindtap="onOrderHistory">
+      <text class="menu-icon">📋</text>
+      <text class="menu-text">订单记录</text>
+      <text class="menu-arrow">></text>
+    </view>
+    <view class="menu-item" open-type="contact">
+      <text class="menu-icon">💬</text>
+      <text class="menu-text">客服咨询</text>
+      <text class="menu-arrow">></text>
+    </view>
+    <view class="menu-item" open-type="share">
+      <text class="menu-icon">🎁</text>
+      <text class="menu-text">推荐给朋友</text>
+      <text class="menu-arrow">></text>
+    </view>
+    <view class="menu-item" bindtap="onAbout">
+      <text class="menu-icon">ℹ️</text>
+      <text class="menu-text">关于我们</text>
+      <text class="menu-arrow">></text>
+    </view>
+  </view>
+</view>

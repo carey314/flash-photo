@@ -1,0 +1,77 @@
+<!-- 结果页 -->
+<view class="page">
+  <!-- 证件照预览 -->
+  <view class="result-preview">
+    <view class="preview-card" style="background: {{bgColor}};">
+      <image class="result-photo" src="{{resultImageUrl}}" mode="aspectFit"></image>
+    </view>
+    <view class="preview-info">
+      <text class="spec-label">{{specName}} · {{specDesc}}</text>
+      <text class="bg-label">{{bgName}}背景</text>
+    </view>
+  </view>
+
+  <!-- 排版预览 -->
+  <view class="layout-section card">
+    <text class="section-title">排版预览</text>
+    <view class="layout-options">
+      <view class="layout-item {{activeLayout === 'single' ? 'active' : ''}}" bindtap="onSelectLayout" data-layout="single">
+        <view class="layout-thumb single-thumb" style="background: {{bgColor}};">
+          <view class="mini-photo"></view>
+        </view>
+        <text>单张</text>
+      </view>
+      <view class="layout-item {{activeLayout === 'four' ? 'active' : ''}}" bindtap="onSelectLayout" data-layout="four">
+        <view class="layout-thumb four-thumb" style="background: {{bgColor}};">
+          <view class="mini-photo"></view>
+          <view class="mini-photo"></view>
+          <view class="mini-photo"></view>
+          <view class="mini-photo"></view>
+        </view>
+        <text>四联</text>
+      </view>
+      <view class="layout-item {{activeLayout === 'eight' ? 'active' : ''}}" bindtap="onSelectLayout" data-layout="eight">
+        <view class="layout-thumb eight-thumb" style="background: {{bgColor}};">
+          <view class="mini-photo"></view>
+          <view class="mini-photo"></view>
+          <view class="mini-photo"></view>
+          <view class="mini-photo"></view>
+          <view class="mini-photo"></view>
+          <view class="mini-photo"></view>
+          <view class="mini-photo"></view>
+          <view class="mini-photo"></view>
+        </view>
+        <text>八联</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 水印提示（免费版） -->
+  <view class="watermark-tip card" wx:if="{{hasWatermark}}">
+    <view class="tip-content">
+      <text class="tip-icon">💡</text>
+      <text class="tip-text">当前为预览版（含水印），付费后获取高清无水印版本</text>
+    </view>
+    <view class="tip-actions">
+      <button class="btn-primary tip-btn" bindtap="onPay">
+        ¥{{priceText}} 去水印下载
+      </button>
+      <button class="btn-secondary tip-btn" bindtap="onWatchAd" wx:if="{{canWatchAd}}">
+        看广告免费下载
+      </button>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="actions">
+    <button class="btn-primary action-btn" bindtap="onSavePhoto" wx:if="{{!hasWatermark}}">
+      保存到相册
+    </button>
+    <button class="btn-secondary action-btn" bindtap="onRetake">
+      重新拍摄
+    </button>
+    <button class="btn-secondary action-btn" open-type="share">
+      分享给朋友
+    </button>
+  </view>
+</view>

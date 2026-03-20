@@ -1,0 +1,27 @@
+<!-- 拍照页 - 用于需要直接打开相机的场景 -->
+<view class="page">
+  <camera device-position="front" flash="off" class="camera-view"
+    binderror="onCameraError">
+    <!-- 拍照引导线 -->
+    <view class="guide-overlay">
+      <view class="guide-frame">
+        <view class="guide-head"></view>
+      </view>
+      <text class="guide-text">请将脸部置于框内</text>
+    </view>
+  </camera>
+
+  <view class="controls">
+    <view class="control-btn" bindtap="onChooseAlbum">
+      <text class="control-icon">🖼️</text>
+      <text class="control-label">相册</text>
+    </view>
+    <view class="shutter-btn" bindtap="onTakePhoto">
+      <view class="shutter-inner"></view>
+    </view>
+    <view class="control-btn" bindtap="onFlipCamera">
+      <text class="control-icon">🔄</text>
+      <text class="control-label">翻转</text>
+    </view>
+  </view>
+</view>

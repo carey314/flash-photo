@@ -1,0 +1,102 @@
+/* 全局样式 */
+page {
+  background-color: #F5F5F5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+/* 通用容器 */
+.container {
+  padding: 20rpx 30rpx;
+}
+
+/* 卡片样式 */
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 主按钮 */
+.btn-primary {
+  background: linear-gradient(135deg, #4A90D9, #357ABD);
+  color: #fff;
+  border: none;
+  border-radius: 50rpx;
+  padding: 24rpx 60rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 6rpx 20rpx rgba(74, 144, 217, 0.3);
+}
+
+.btn-primary:active {
+  opacity: 0.85;
+  transform: scale(0.98);
+}
+
+/* 次要按钮 */
+.btn-secondary {
+  background: #fff;
+  color: #4A90D9;
+  border: 2rpx solid #4A90D9;
+  border-radius: 50rpx;
+  padding: 22rpx 60rpx;
+  font-size: 32rpx;
+  text-align: center;
+}
+
+/* 标签 */
+.tag {
+  display: inline-block;
+  padding: 4rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+  background: #EBF3FB;
+  color: #4A90D9;
+}
+
+.tag-hot {
+  background: #FFF0E5;
+  color: #FF6B00;
+}
+
+/* 分割线 */
+.divider {
+  height: 1rpx;
+  background: #EEEEEE;
+  margin: 20rpx 0;
+}
+
+/* 文字省略 */
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* flex 布局 */
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
