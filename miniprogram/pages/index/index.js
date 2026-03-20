@@ -6,6 +6,11 @@ Page({
     selectedBg: '#438EDB',
     freeCount: 1,
     userInfo: null,
+    reviews: [
+      { name: '小***6', stars: '⭐⭐⭐⭐⭐', text: '太方便了！考研报名急用照片，3秒就搞定了，比照相馆好太多' },
+      { name: '用***8', stars: '⭐⭐⭐⭐⭐', text: '给宝宝拍的证件照，在家拍完直接生成，省了好多事' },
+      { name: 'L***y', stars: '⭐⭐⭐⭐', text: '签证照片规格很全，美签的正方形也有，不用再去照相馆了' },
+    ],
   },
 
   onLoad() {

@@ -1,0 +1,21 @@
+{
+  "description": "闪拍证件照小程序隐私保护指引",
+  "privacyKey": [
+    {
+      "key": "userInfo",
+      "desc": "用于展示用户头像和昵称"
+    },
+    {
+      "key": "chooseImage",
+      "desc": "用于选择照片制作证件照"
+    },
+    {
+      "key": "camera",
+      "desc": "用于拍摄证件照"
+    },
+    {
+      "key": "writePhotosAlbum",
+      "desc": "用于保存制作好的证件照到相册"
+    }
+  ]
+}

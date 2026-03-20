@@ -207,6 +207,44 @@
   color: #999;
 }
 
+/* 用户评价 */
+.reviews {
+  margin: 0 30rpx 20rpx;
+}
+
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.review-item {
+  padding: 20rpx;
+  background: #F8FAFD;
+  border-radius: 12rpx;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8rpx;
+}
+
+.review-name {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.review-stars {
+  font-size: 22rpx;
+}
+
+.review-text {
+  font-size: 26rpx;
+  color: #555;
+  line-height: 1.5;
+}
+
 /* 免费提示 */
 .free-tip {
   position: fixed;

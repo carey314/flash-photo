@@ -1,0 +1,22 @@
+<!-- 隐私协议弹窗 -->
+<view class="privacy-mask" wx:if="{{show}}" catchtouchmove="preventMove">
+  <view class="privacy-dialog">
+    <view class="privacy-title">用户隐私保护提示</view>
+    <view class="privacy-content">
+      <text>在使用「闪拍证件照」前，请仔细阅读</text>
+      <text class="privacy-link" bindtap="onOpenPrivacy">《隐私保护指引》</text>
+      <text>。\n\n我们将在以下场景使用你的信息：</text>
+      <view class="privacy-list">
+        <view class="privacy-item">📷 使用相机拍摄照片</view>
+        <view class="privacy-item">🖼️ 读取相册选择照片</view>
+        <view class="privacy-item">💾 保存照片到相册</view>
+        <view class="privacy-item">☁️ 上传照片到云端处理</view>
+      </view>
+      <text class="privacy-note">你的照片仅用于证件照生成，处理后自动删除，不会用于其他用途。</text>
+    </view>
+    <view class="privacy-actions">
+      <button class="privacy-btn reject" bindtap="onReject">不同意</button>
+      <button class="privacy-btn agree" id="agree-btn" open-type="agreePrivacyAuthorization" bindagreeprivacyauthorization="onAgree">同意并继续</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,82 @@
+.privacy-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.privacy-dialog {
+  width: 600rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 40rpx;
+  box-shadow: 0 20rpx 60rpx rgba(0, 0, 0, 0.3);
+}
+
+.privacy-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin-bottom: 24rpx;
+}
+
+.privacy-content {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 30rpx;
+}
+
+.privacy-link {
+  color: #4A90D9;
+  font-weight: 500;
+}
+
+.privacy-list {
+  margin: 16rpx 0;
+  padding-left: 10rpx;
+}
+
+.privacy-item {
+  padding: 8rpx 0;
+  font-size: 26rpx;
+  color: #555;
+}
+
+.privacy-note {
+  display: block;
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.privacy-actions {
+  display: flex;
+  gap: 20rpx;
+}
+
+.privacy-btn {
+  flex: 1;
+  border-radius: 50rpx !important;
+  font-size: 30rpx !important;
+  padding: 20rpx 0 !important;
+  line-height: 1.5 !important;
+  border: none !important;
+}
+
+.privacy-btn.reject {
+  background: #F5F5F5 !important;
+  color: #999 !important;
+}
+
+.privacy-btn.agree {
+  background: linear-gradient(135deg, #4A90D9, #357ABD) !important;
+  color: #fff !important;
+}

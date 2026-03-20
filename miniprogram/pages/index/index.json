@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "闪拍证件照",
-  "enablePullDownRefresh": false
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "privacy-popup": "/components/privacy-popup/privacy-popup"
+  }
 }

@@ -80,8 +80,25 @@
     </view>
   </view>
 
+  <!-- 用户评价 -->
+  <view class="reviews card">
+    <view class="section-title" style="margin-bottom: 20rpx;">用户评价</view>
+    <view class="review-list">
+      <view class="review-item" wx:for="{{reviews}}" wx:key="index">
+        <view class="review-header">
+          <text class="review-name">{{item.name}}</text>
+          <text class="review-stars">{{item.stars}}</text>
+        </view>
+        <text class="review-text">{{item.text}}</text>
+      </view>
+    </view>
+  </view>
+
   <!-- 今日免费额度提示 -->
   <view class="free-tip" wx:if="{{freeCount > 0}}">
     <text>今日还有 {{freeCount}} 次免费体验机会</text>
   </view>
+
+  <!-- 隐私协议弹窗 -->
+  <privacy-popup></privacy-popup>
 </view>
